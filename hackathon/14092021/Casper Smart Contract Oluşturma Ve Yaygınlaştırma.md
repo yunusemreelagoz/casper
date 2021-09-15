@@ -4,16 +4,16 @@
 
 ->installed cargo-casper </br>
 ->created a project named as simpleSmartContractCasperYee </br>
-->entered "cd simpleSmartContractCasperYee" and "cd contract" commands
-->entered "rustup install $(cat rust-toolchain)" command
-->entered "rustup target add --toolchain $(cat rust-toolchain) wasm32-unknown-unknown" command
-![2](https://user-images.githubusercontent.com/11984900/133486119-bd47ebdd-9cee-4026-9e81-481a9361f1a9.png)
+->entered "cd simpleSmartContractCasperYee" and "cd contract" commands </br>
+->entered "rustup install $(cat rust-toolchain)" command </br>
+->entered "rustup target add --toolchain $(cat rust-toolchain) wasm32-unknown-unknown" command </br>
+![2](https://user-images.githubusercontent.com/11984900/133486119-bd47ebdd-9cee-4026-9e81-481a9361f1a9.png) </br>
 
-->entered "cargo build --release" command
-->waiting 2 minutes and 41 seconds  after above code.....
-![3](https://user-images.githubusercontent.com/11984900/133486143-8df9fe0f-18fe-455d-bf4d-0490d38e1594.png)
-->entered in contract folder "cd ../tests" command
-->entered "cargo test" command
-->waitin 2-3 minutes after above command 
-->and finaly I got test result ok message
-![4](https://user-images.githubusercontent.com/11984900/133486185-e108016f-207d-45d5-ab2f-5c4171e9a265.png)
+->entered "cargo build --release" command </br>
+->waiting 2 minutes and 41 seconds  after above code..... </br>
+![3](https://user-images.githubusercontent.com/11984900/133486143-8df9fe0f-18fe-455d-bf4d-0490d38e1594.png) </br>
+->entered in contract folder "cd ../tests" command </br>
+->entered "cargo test" command </br>
+->waitin 2-3 minutes after above command  </br>
+->and finaly I got test result ok message </br>
+![4](https://user-images.githubusercontent.com/11984900/133486185-e108016f-207d-45d5-ab2f-5c4171e9a265.png) </br>
