@@ -1,9 +1,9 @@
-####Create and deploy a simple, smart contract
-->I installed rust and cmake as shown https://docs.casperlabs.io/en/latest/dapp-dev-guide/setup-of-rust-contract-sdk.html
-![1](https://user-images.githubusercontent.com/11984900/133486002-29d834de-c78a-4f9e-a57b-bb82b405f577.png)
+####Create and deploy a simple, smart contract </br>
+->I installed rust and cmake as shown https://docs.casperlabs.io/en/latest/dapp-dev-guide/setup-of-rust-contract-sdk.html </br>
+![1](https://user-images.githubusercontent.com/11984900/133486002-29d834de-c78a-4f9e-a57b-bb82b405f577.png) </br>
 
-->installed cargo-casper
-->created a project named as simpleSmartContractCasperYee
+->installed cargo-casper </br>
+->created a project named as simpleSmartContractCasperYee </br>
 ->entered "cd simpleSmartContractCasperYee" and "cd contract" commands
 ->entered "rustup install $(cat rust-toolchain)" command
 ->entered "rustup target add --toolchain $(cat rust-toolchain) wasm32-unknown-unknown" command
