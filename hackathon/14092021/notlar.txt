@@ -1,0 +1,185 @@
+###secret key path
+/home/voyager/casper_node/casper-node/utils/nctl/assets/net-1/faucet/secret_key.pem
+.....
+####faucet_account (nctl-view-faucet-account)
+{
+  "api_version": "1.0.0",
+  "merkle_proof": "[2160 hex chars]",
+  "stored_value": {
+    "Account": {
+      "account_hash": "account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058",
+      "action_thresholds": {
+        "deployment": 1,
+        "key_management": 1
+      },
+      "associated_keys": [
+        {
+          "account_hash": "account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058",
+          "weight": 1
+        }
+      ],
+      "main_purse": "uref-4e146d5e879e92c7a6b7a9b16957dcf2e3dae8e66192340dc994a9dc04635e79-007",
+      "named_keys": []
+    }
+  }
+}
+-------------------------
+#####Get state root hash (casper-client get-state-root-hash --node-address http://localhost:11101)
+{
+  "id": -3986199665427476746,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "state_root_hash": "37161ea0c518fd0179c7ee6e5225e9c32c10c8adb6158df309cf0cafae4fd36d"
+  }
+}
+------------
+###query state
+casper-client query-state \
+    --node-address http://localhost:11101 \
+    --state-root-hash 37161ea0c518fd0179c7ee6e5225e9c32c10c8adb6158df309cf0cafae4fd36d \
+    --key account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058
+
+###put deploy
+
+casper-client put-deploy \
+    --node-address http://localhost:11101 \
+    --chain-name casper-net-1 \
+    --secret-key /home/voyager/casper_node/casper-node/utils/nctl/assets/net-1/faucet/secret_key.pem \
+    --payment-amount 5000000000000 \
+    --session-path ./counter/target/wasm32-unknown-unknown/release/counter-define.wasm    
+
+
+####deploy hasresult
+{
+  "id": 5413903746420486557,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "deploy_hash": "1f45d32a2be6d6370cb876870f45cbc771a9aecda93f9f847ca79cd19c524af0"
+  }
+}
+###deploy hash
+casper-client get-deploy \
+    --node-address http://localhost:11101 1f45d32a2be6d6370cb876870f45cbc771a9aecda93f9f847ca79cd19c524af0
+
+///casper client get state root hash again
+{
+  "id": -2518018196994378954,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "state_root_hash": "c52f9ed82cc1fc0380748ebf8a244ab9c42a17a5a2adf4b2c634655a300fe797"
+  }
+}
+///casper client get query state
+casper-client query-state \
+    --node-address http://localhost:11101 \
+    --state-root-hash c52f9ed82cc1fc0380748ebf8a244ab9c42a17a5a2adf4b2c634655a300fe797 \
+    --key account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058 
+
+#######
+üstteki kodun asccount hash satrının sonuna "counter" or "counter/count" -q parametresi ile
+tırnaklı ifade eklenirse kontrata ait detaylar görünür
+-q "counter" or -q "counter/count"
+#######
+
+////////////////////////////////////results
+{
+  "id": 8845407590522143096,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "merkle_proof": "[2316 hex chars]",
+    "stored_value": {
+      "Account": {
+        "account_hash": "account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058",
+        "action_thresholds": {
+          "deployment": 1,
+          "key_management": 1
+        },
+        "associated_keys": [
+          {
+            "account_hash": "account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058",
+            "weight": 1
+          }
+        ],
+        "main_purse": "uref-4e146d5e879e92c7a6b7a9b16957dcf2e3dae8e66192340dc994a9dc04635e79-007",
+        "named_keys": [
+          {
+            "key": "hash-cf2d92cc67f80677fc7ae31e1d67fbf912bc23f9e18ef720ff2108941a13f35d",
+            "name": "counter"
+          }
+        ]
+      }
+    }
+  }
+}
+###get deploy details
+casper-client query-state \
+    --node-address http://localhost:11101 \
+    --state-root-hash c52f9ed82cc1fc0380748ebf8a244ab9c42a17a5a2adf4b2c634655a300fe797 \
+    --key deploy-1f45d32a2be6d6370cb876870f45cbc771a9aecda93f9f847ca79cd19c524af0
+
+###increment the counter
+casper-client put-deploy \
+    --node-address http://localhost:11101 \
+    --chain-name casper-net-1 \
+    --secret-key /home/voyager/casper_node/casper-node/utils/nctl/assets/net-1/faucet/secret_key.pem \
+    --payment-amount 5000000000000 \
+    --session-name "counter" \
+    --session-entry-point "counter_inc"    
+
+###deploy has about above
+{
+  "id": -286883126747559950,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "deploy_hash": "d36e8774691fc4b5c9f14159aaa9ac4fbab4fcd39124e7ddc633404942b4d91a"
+  }
+}
+###state root hash
+{
+  "id": 2151363201820174608,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "state_root_hash": "5633d01511b30b143c49d9c2e1e759fd63226eccc629e506855ca48214aff97f"
+  }
+}
+----------------------
+casper-client query-state \
+    --node-address http://localhost:11101 \
+    --state-root-hash 5633d01511b30b143c49d9c2e1e759fd63226eccc629e506855ca48214aff97f \
+    --key account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058
+###query result
+{
+  "id": -7256267485387039181,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "merkle_proof": "[8038 hex chars]",
+    "stored_value": {
+      "CLValue": {
+        "bytes": "01000000",
+        "cl_type": "I32",
+        "parsed": 1
+      }
+    }
+  }
+}
+------------------------------------------
+{
+  "id": -79602399685857235,
+  "jsonrpc": "2.0",
+  "result": {
+    "api_version": "1.0.0",
+    "state_root_hash": "16404c0329bcebce8a4533e34773eb981f8eab9eeb6b6359e65ef74c1882a6ce"
+  }
+}
+-----
+casper-client query-state \
+    --node-address http://localhost:11101 \
+    --state-root-hash 16404c0329bcebce8a4533e34773eb981f8eab9eeb6b6359e65ef74c1882a6ce \
+    --key account-hash-eca2db714f5702e028c9e2c765c27c7bc959f882424e9db5a1ef0c7f99ba7058
