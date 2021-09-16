@@ -13,3 +13,9 @@
 ->entered "cargo test" command
 ->waitin 2-3 minutes after above command 
 ->and finaly I got test result ok message
+
+
+####COUNTER CONTRACT
+nctl-view-faucet-account
+casper-client get-state-root-hash
+casper-client query-state
