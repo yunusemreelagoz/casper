@@ -9,18 +9,18 @@
 ->entered "rustup target add --toolchain $(cat rust-toolchain) wasm32-unknown-unknown" command </br>
 ![2](https://user-images.githubusercontent.com/11984900/133486119-bd47ebdd-9cee-4026-9e81-481a9361f1a9.png) </br>
 
+
+->entered "cargo build --release" command </br>
+->waiting 2 minutes and 41 seconds  after above code..... </br>
+![3](https://user-images.githubusercontent.com/11984900/133486143-8df9fe0f-18fe-455d-bf4d-0490d38e1594.png) </br>
+
 ->entered in contract folder "cd ../tests" command </br>
 ->entered "cargo test" command </br>
 ->waitin 2-3 minutes after above command  </br>
 ->and finaly I got test result ok message </br>
-![3](https://user-images.githubusercontent.com/11984900/133486143-8df9fe0f-18fe-455d-bf4d-0490d38e1594.png) </br>
-
-->entered "cargo build --release" command </br>
-->waiting 2 minutes and 41 seconds  after above code..... </br>
 ![4](https://user-images.githubusercontent.com/11984900/133486185-e108016f-207d-45d5-ab2f-5c4171e9a265.png) </br>
 
-
-####COUNTER CONTRACT
-nctl-view-faucet-account
-casper-client get-state-root-hash
-casper-client query-state
+####COUNTER CONTRACT </br>
+nctl-view-faucet-account</br>
+casper-client get-state-root-hash</br>
+casper-client query-state</br>
