@@ -1,5 +1,6 @@
 <h1>1.Create and deploy a simple, smart contract</h1> </br>
 ->I installed rust and cmake as shown https://docs.casperlabs.io/en/latest/dapp-dev-guide/setup-of-rust-contract-sdk.html </br>
+
 ![1](https://user-images.githubusercontent.com/11984900/133486002-29d834de-c78a-4f9e-a57b-bb82b405f577.png) </br>
 
 ->installed cargo-casper </br>
@@ -7,20 +8,24 @@
 ->entered "cd simpleSmartContractCasperYee" and "cd contract" commands </br>
 ->entered "rustup install $(cat rust-toolchain)" command </br>
 ->entered "rustup target add --toolchain $(cat rust-toolchain) wasm32-unknown-unknown" command </br>
+
 ![2](https://user-images.githubusercontent.com/11984900/133486119-bd47ebdd-9cee-4026-9e81-481a9361f1a9.png) </br>
 
 
 ->entered "cargo build --release" command </br>
 ->waiting 2 minutes and 41 seconds  after above code..... </br>
+
 ![3](https://user-images.githubusercontent.com/11984900/133486143-8df9fe0f-18fe-455d-bf4d-0490d38e1594.png) </br>
 
 ->entered in contract folder "cd ../tests" command </br>
 ->entered "cargo test" command </br>
 ->waitin 2-3 minutes after above command  </br>
 ->and finaly I got test result ok message </br>
+
 ![4](https://user-images.githubusercontent.com/11984900/133486185-e108016f-207d-45d5-ab2f-5c4171e9a265.png) </br>
 
 <h1>2.Complete one of the existing tutorials for writing smart contracts - Multi-Signature Tutorial(COUNTER CONTRACT) </h1>
+
 ![7](https://user-images.githubusercontent.com/11984900/133842156-870dd2d4-abcc-44f2-ac14-53082ff32f9a.png) </br>
 ![8](https://user-images.githubusercontent.com/11984900/133842164-d6bb398a-c69c-461a-bf86-5c4514ba0b94.png) </br>
 ![9](https://user-images.githubusercontent.com/11984900/133842176-a046a3c3-5208-49df-9859-f20267cf1b40.png) </br> 
@@ -33,13 +38,15 @@
 ![16](https://user-images.githubusercontent.com/11984900/133842301-8bbdaa5c-b582-4dcb-9028-3afa68aab0aa.png) </br>
 ![17](https://user-images.githubusercontent.com/11984900/133842318-fb9e5ad2-2716-46e0-af70-5191c1f1cffb.png) </br>
 
-<h1>####(3. Demonstrate key management concepts by modifying the client in the Multi-Sig tutorial to address one of the additional scenarios)</h1>
+<h1>3. Demonstrate key management concepts by modifying the client in the Multi-Sig tutorial to address one of the additional scenarios</h1>
 Scenario 4: managing lost or stolen keys¶
 In this example, you need two out of three associated keys to sign a transaction. Consider a transaction where you have one key in your browser, one key on your mobile phone, and one key in your safe. To do a transaction, first, you sign it with your browser extension (for example, Metamask). Afterward, a notification appears on your mobile phone requesting you to approve the transaction. With these two keys, you can complete the transaction. However, what if you lose the two keys on your browser and phone? Or, what if someone steals your browser and phone? In this case, you can use the safe key to remove the lost or stolen keys from the account. Notice that the safe key’s weight is 3, which gives you the option to manage your account and add or remove keys. Also, the stolen or lost keys can only enable deployments, and in this case, no one can use them to change your account.
+
 ![19](https://user-images.githubusercontent.com/11984900/133859416-d1b1c319-cc45-4085-8dac-2edd8d7ddcb0.png) </br>
 ![20](https://user-images.githubusercontent.com/11984900/133859421-ad67617d-5a0d-435e-bcde-e5761e42d830.png) </br>
 ![21](https://user-images.githubusercontent.com/11984900/133859433-a6f69adb-cc1e-470e-9ea4-e4ab63239a58.png) </br>
 ![22](https://user-images.githubusercontent.com/11984900/133859441-cec0a2ee-c006-49d5-b6a6-7401c78af1ec.png) </br>
+
 { </br>
   _accountHash: 'account-hash-b0027d1828cc452a97e3aebcc235e3c9426e1f5ce6dcd18eb790bfde3da928fe',</br>
   namedKeys: [</br>
@@ -73,6 +80,7 @@ In this example, you need two out of three associated keys to sign a transaction
 ------------------------------------------------</br>
 
 <h1>4. Learn to transfer tokens to an account on the Casper Testnet</h1> </br>
+
 ![23](https://user-images.githubusercontent.com/11984900/133862549-633964ea-3217-45c0-b38e-dc9c4a5f7cc5.png) </br>
 
 ![24](https://user-images.githubusercontent.com/11984900/133862560-b5237e74-33c4-4f3e-ab74-611f3261b4b4.png) </br>
@@ -80,6 +88,7 @@ In this example, you need two out of three associated keys to sign a transaction
 ![25](https://user-images.githubusercontent.com/11984900/133862570-e89634b9-3cfa-4182-a8b9-54f97ed2f171.png) </br>
 
 <h1>5. Learn to Delegate and Undelegate on the Casper Testnet</h1> </br>
+
 ![26](https://user-images.githubusercontent.com/11984900/133862909-9155f6d6-a1c0-4718-a9a1-0adfc34f0a7d.png) </br>
 ![27](https://user-images.githubusercontent.com/11984900/133862916-5b140871-846c-499b-8424-d9e2cdac43d2.png)  </br>
 
