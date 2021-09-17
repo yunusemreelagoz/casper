@@ -32,7 +32,6 @@
 ![15](https://user-images.githubusercontent.com/11984900/133842285-d05c7afa-5498-491d-9c62-743a7218650c.png)
 ![16](https://user-images.githubusercontent.com/11984900/133842301-8bbdaa5c-b582-4dcb-9028-3afa68aab0aa.png)
 ![17](https://user-images.githubusercontent.com/11984900/133842318-fb9e5ad2-2716-46e0-af70-5191c1f1cffb.png)
-![18](https://user-images.githubusercontent.com/11984900/133842334-1682766d-3448-46ef-93af-820ad1a9970b.png)
 
 
 
