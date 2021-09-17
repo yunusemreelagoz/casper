@@ -1,0 +1,89 @@
+{
+  "api_version": "1.0.0",
+  "merkle_proof": "[2160 hex chars]",
+  "stored_value": {
+    "Account": {
+      "account_hash": "account-hash-9623ce310df0287f3e40fe65423df303e180e627417be7bd7568d521127c854d",
+      "action_thresholds": {
+        "deployment": 1,
+        "key_management": 1
+      },
+      "associated_keys": [
+        {
+          "account_hash": "account-hash-9623ce310df0287f3e40fe65423df303e180e627417be7bd7568d521127c854d",
+          "weight": 1
+        }
+      ],
+      "main_purse": "uref-d9b5d020a67232fc9f8594a3681d13c27db9305b31cf56b53dc0cf0fe59ab656-007",
+      "named_keys": []
+    }
+  }
+}
+
+--------------------------------
+{
+  _accountHash: 'account-hash-b0027d1828cc452a97e3aebcc235e3c9426e1f5ce6dcd18eb790bfde3da928fe',
+  namedKeys: [
+    {
+      name: 'keys_manager',
+      key: 'hash-9097e896470db59ebcf9796527382a9297b341c3781543b24b64ab8e3dbf285b'
+    },
+    {
+      name: 'keys_manager_hash',
+      key: 'uref-aef3a6df0bfda067da5d9355495e1bc63687304da4b87a108540f14d8b62c9ec-007'
+    }
+  ],
+  mainPurse: 'uref-1a96ebb0d9c3a1351e1d861ae6cf8d2ec6efce237e780a98454f4730ab086f9b-007',
+  associatedKeys: [
+    {
+      accountHash: 'account-hash-2e78042bec726877cc1614fdfbee2b44461d244f514480cc08a1f995f109455d',
+      weight: 1
+    },
+    {
+      accountHash: 'account-hash-407b6b92ebf83595826cc7ae7d13945f829b6fa57237f861304d387237d9be6c',
+      weight: 1
+    },
+    {
+      accountHash: 'account-hash-b0027d1828cc452a97e3aebcc235e3c9426e1f5ce6dcd18eb790bfde3da928fe',
+      weight: 3
+    }
+  ],
+  actionThresholds: { deployment: 2, keyManagement: 3 }
+}
+----------------------
+let deploy;
+
+    // 0. Initial state of the account.
+    // There should be only one associated key (faucet) with weight 1.
+    // Deployment Threshold should be set to 1.
+    // Key Management Threshold should be set to 1.
+    let masterKey = keyManager.randomMasterKey();
+    let safeAccount = masterKey.deriveIndex(1);    
+    let mobileAccount = masterKey.deriveIndex(2);    
+    let browserAccount = masterKey.deriveIndex(3);    
+
+    
+    console.log("\n0.1 Fund safe account.\n");
+    await keyManager.fundAccount(safeAccount);
+    console.log("\n[x]0.2 Install Keys Manager contract");
+    deploy = keyManager.keys.buildContractInstallDeploy(safeAccount);
+    await keyManager.sendDeploy(deploy, [safeAccount]);
+    // 1. Set safeAccount's weight to 3
+    console.log("\n1. Set faucet's weight to 3\n");
+    deploy = keyManager.keys.setKeyWeightDeploy(safeAccount, safeAccount, 3);
+    await keyManager.sendDeploy(deploy, [safeAccount]);
+    // 2. Set Keys Management Threshold to 3.
+    console.log("\n2. Set Keys Management Threshold to 3\n");
+    deploy = keyManager.keys.setKeyManagementThresholdDeploy(safeAccount, 3);
+    await keyManager.sendDeploy(deploy, [safeAccount]);
+    // 3. Set Deploy Threshold to 2.
+    console.log("\n3. Set Deploy Threshold to 2.\n");
+    deploy = keyManager.keys.setDeploymentThresholdDeploy(safeAccount, 2);
+    await keyManager.sendDeploy(deploy, [safeAccount]);
+    // 4. Add mobile and browser keys with weight 1.
+    console.log("\n4. Add mobile key with weight 1.\n");
+    deploy = keyManager.keys.setKeyWeightDeploy(safeAccount, mobileAccount, 1);
+    await keyManager.sendDeploy(deploy, [safeAccount]);
+    console.log("\n5. Add browser key with weight 1.\n");
+    deploy = keyManager.keys.setKeyWeightDeploy(safeAccount, browserAccount, 1);
+    await keyManager.sendDeploy(deploy, [safeAccount]);
