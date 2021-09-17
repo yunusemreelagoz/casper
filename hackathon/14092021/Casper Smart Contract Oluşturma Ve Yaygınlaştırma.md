@@ -80,7 +80,7 @@ In this example, you need two out of three associated keys to sign a transaction
 ![25](https://user-images.githubusercontent.com/11984900/133862570-e89634b9-3cfa-4182-a8b9-54f97ed2f171.png)
 
 #####DELEGATION
-
-
+![26](https://user-images.githubusercontent.com/11984900/133862909-9155f6d6-a1c0-4718-a9a1-0adfc34f0a7d.png)
+![27](https://user-images.githubusercontent.com/11984900/133862916-5b140871-846c-499b-8424-d9e2cdac43d2.png)
 
 
