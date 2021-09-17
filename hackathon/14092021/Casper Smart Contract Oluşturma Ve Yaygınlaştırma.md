@@ -36,6 +36,42 @@
 ####MULTI-SIGNITURE
 Scenario 4: managing lost or stolen keys¶
 In this example, you need two out of three associated keys to sign a transaction. Consider a transaction where you have one key in your browser, one key on your mobile phone, and one key in your safe. To do a transaction, first, you sign it with your browser extension (for example, Metamask). Afterward, a notification appears on your mobile phone requesting you to approve the transaction. With these two keys, you can complete the transaction. However, what if you lose the two keys on your browser and phone? Or, what if someone steals your browser and phone? In this case, you can use the safe key to remove the lost or stolen keys from the account. Notice that the safe key’s weight is 3, which gives you the option to manage your account and add or remove keys. Also, the stolen or lost keys can only enable deployments, and in this case, no one can use them to change your account.
+![19](https://user-images.githubusercontent.com/11984900/133859416-d1b1c319-cc45-4085-8dac-2edd8d7ddcb0.png)
+![20](https://user-images.githubusercontent.com/11984900/133859421-ad67617d-5a0d-435e-bcde-e5761e42d830.png)
+![21](https://user-images.githubusercontent.com/11984900/133859433-a6f69adb-cc1e-470e-9ea4-e4ab63239a58.png)
+![22](https://user-images.githubusercontent.com/11984900/133859441-cec0a2ee-c006-49d5-b6a6-7401c78af1ec.png)
+{
+  _accountHash: 'account-hash-b0027d1828cc452a97e3aebcc235e3c9426e1f5ce6dcd18eb790bfde3da928fe',
+  namedKeys: [
+    {
+      name: 'keys_manager',
+      key: 'hash-9097e896470db59ebcf9796527382a9297b341c3781543b24b64ab8e3dbf285b'
+    },
+    {
+      name: 'keys_manager_hash',
+      key: 'uref-aef3a6df0bfda067da5d9355495e1bc63687304da4b87a108540f14d8b62c9ec-007'
+    }
+  ],
+  mainPurse: 'uref-1a96ebb0d9c3a1351e1d861ae6cf8d2ec6efce237e780a98454f4730ab086f9b-007',
+  associatedKeys: [
+    {
+      accountHash: 'account-hash-2e78042bec726877cc1614fdfbee2b44461d244f514480cc08a1f995f109455d',
+      weight: 1
+    },
+    {
+      accountHash: 'account-hash-407b6b92ebf83595826cc7ae7d13945f829b6fa57237f861304d387237d9be6c',
+      weight: 1
+    },
+    {
+      accountHash: 'account-hash-b0027d1828cc452a97e3aebcc235e3c9426e1f5ce6dcd18eb790bfde3da928fe',
+      weight: 3
+    }
+  ],
+  actionThresholds: { deployment: 2, keyManagement: 3 }
+}
+
+------------------------------------------------
+
 
 
 
