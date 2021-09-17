@@ -72,6 +72,15 @@ In this example, you need two out of three associated keys to sign a transaction
 
 ------------------------------------------------</br>
 
+####DIRECT TOKEN TRANSFER
+![23](https://user-images.githubusercontent.com/11984900/133862549-633964ea-3217-45c0-b38e-dc9c4a5f7cc5.png)
+
+![24](https://user-images.githubusercontent.com/11984900/133862560-b5237e74-33c4-4f3e-ab74-611f3261b4b4.png)
+
+![25](https://user-images.githubusercontent.com/11984900/133862570-e89634b9-3cfa-4182-a8b9-54f97ed2f171.png)
+
+#####DELEGATION
+
 
 
 
