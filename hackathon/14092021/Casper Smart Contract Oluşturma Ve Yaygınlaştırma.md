@@ -33,5 +33,9 @@
 ![16](https://user-images.githubusercontent.com/11984900/133842301-8bbdaa5c-b582-4dcb-9028-3afa68aab0aa.png)
 ![17](https://user-images.githubusercontent.com/11984900/133842318-fb9e5ad2-2716-46e0-af70-5191c1f1cffb.png)
 
+####MULTI-SIGNITURE
+Scenario 4: managing lost or stolen keys¶
+In this example, you need two out of three associated keys to sign a transaction. Consider a transaction where you have one key in your browser, one key on your mobile phone, and one key in your safe. To do a transaction, first, you sign it with your browser extension (for example, Metamask). Afterward, a notification appears on your mobile phone requesting you to approve the transaction. With these two keys, you can complete the transaction. However, what if you lose the two keys on your browser and phone? Or, what if someone steals your browser and phone? In this case, you can use the safe key to remove the lost or stolen keys from the account. Notice that the safe key’s weight is 3, which gives you the option to manage your account and add or remove keys. Also, the stolen or lost keys can only enable deployments, and in this case, no one can use them to change your account.
+
 
 
